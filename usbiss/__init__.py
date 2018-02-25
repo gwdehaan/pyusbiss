@@ -29,11 +29,11 @@ class USBISS(object):
     library used to facilitate an connection.
     """
 
-    self.module = None
-    self.firmware = None
-    self.iss_mode = None
-    self.cur_iss_mode = None
-    self.serial = None
+    module = None
+    firmware = None
+    iss_mode = None
+    cur_iss_mode = None
+    serial = None
 
 
     def __init__(self, port):
@@ -50,6 +50,7 @@ class USBISS(object):
 
         self.get_iss_info()
         self.get_iss_serial_no()
+        print(self.__repr__())
 
 
     def open(self):

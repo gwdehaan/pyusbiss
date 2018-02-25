@@ -1,3 +1,3 @@
-from spi import spi
+from spi import SPI
 
-t=spi('COM3', spi_mode = 1, freq = 25000)
+t=SPI('COM3', spi_mode = 1, freq = 25000)

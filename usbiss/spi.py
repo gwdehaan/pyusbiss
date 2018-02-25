@@ -1,11 +1,10 @@
-
-from USBISS import USBISS
+from usbiss import USBISS
 
 class SPI(USBISS):
     """SPI operating mode of USBISS
     """
 
-    self.mode = None
+    mode = None
  
 
     def __init__(self, port, spi_mode=None, freq=None):
