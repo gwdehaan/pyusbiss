@@ -1,5 +1,5 @@
 
-from . import USBISS
+from USBISS import USBISS
 
 class SPI(USBISS):
     """SPI operating mode of USBISS
