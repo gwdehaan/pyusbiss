@@ -55,7 +55,6 @@ class USBISS(object):
 
         self.get_iss_info()
         self.get_iss_serial_no()
-        print(self.__repr__())
 
 
     def open(self):
