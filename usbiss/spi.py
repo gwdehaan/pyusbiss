@@ -20,10 +20,10 @@ class SPI(USBISS):
         super(SPI, self).__init__(port)
 
         # Select the SPI mode of USB-ISS's SPI operating mode
-        self.mode(mode)
+        self.mode = mode
 
         # Select frequency of USB-ISS's SPI operating mode
-        self.max_speed_hz(max_speed_hz)
+        self.max_speed_hz = max_speed_hz
 
         # Configure USB-ISS
         self.set_iss_mode([self.iss_mode, self.sck_divisor])
@@ -86,11 +86,12 @@ class SPI(USBISS):
         self.iss_write([self.SPI_CMD] + data)
         response = self.iss_read(1 + len(data))
         if len(response) != 0:
+            response = self.decode(response)
             status = response.pop(0)
             if status == 0:
                 raise RuntimeError('USB-ISS: Transmission Error')
+            return response
 
-            return self.decode(response)
         else:
             raise RuntimeError('USB-ISS: Transmission Error: No bytes received!')
 
